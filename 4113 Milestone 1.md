@@ -1,10 +1,10 @@
 # IY4113 Milestone 1
 
 | Assessment Details | Please Complete All Details                                             |
-| ------------------ | ----------------------------------------------------------------------- |
+| ------------------ |-------------------------------------------------------------------------|
 | Group              | A                                                                       |
 | Module Title       | IY4113 Applied Software Engineering using Object-Orientated Programming |
-| Assessment Type    | Java Fundementals Part 1                                                |
+| Assessment Type    | Java Fundementals Milestone 1                                           |
 | Module Tutor Name  | Jonathon Shore                                                          |
 | Student ID Number  | P466146                                                                 |
 | Date of Submission | 05/03/2026                                                              |
