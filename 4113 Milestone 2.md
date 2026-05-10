@@ -8,7 +8,7 @@
 | Module Tutor Name  | Jonathan Shore                                                          |
 | Student ID Number  | P466146                                                                 |
 | Date of Submission | 10/05/2026                                                              |
-| Word Count         |                                                                         |
+| Word Count         | 1020                                                                    |
 
 - [x] *I confirm that this assignment is my own work. Where I have referred to academic sources, I have provided in-text citations and included the sources in
   the final reference list.*
@@ -118,6 +118,30 @@ Screenshot (showing the interface/output):
 
 ------------------------------------------------------------------------------------------------------------------------------
 
-*Add diary entries here detailing what you have done, wny you have done it, and any problems encountered.*
+**05/05/2026 - Diary Entry 1 – Developing the Flowchart and Adding Subprocesses**
+
+Today I started designing the flowchart. I analysed the main structure of the program which is given in the brief, then expanded on each main menu option to show the smaller steps that happen after the user selects it. This included subprocesses which was a new thing to me, it involved separating the flowchart into different functions all attached to the main part such as entering journey details, checking that the data is valid, calculating fares, saving journeys in memory, displaying summaries and removing journeys.
+
+Furthermore, I made sure the flowchart had the functions that were listed in the assignment brief. Doing this helped me understand the how the program is supposed to work more clearly and understood how each part of the program connects back to the main menu.
+
+One issue I faced was that the flowchart was filled with unnecessary processes which I decided to delete as they didn't have much impact on the function itself which made the flowchart much more clearer and easy to follow.
+
+
+
+**07/05/2026 - Diary Entry 2 – Researching Similar Programs**  
+Today I began the research section for Milestone 2 by looking for programs that solve a similar type of problem. I searched for travel-related, journey-tracking and trip-recording systems so I could compare them with our project and find useful design ideas. I focused on finding examples that had some connection to recording journeys, displaying trip information or organising user input clearly.
+
+While doing this, I realised that not every travel app was a good match for the task as some examples were mainly focused on bookings, maps or route planning, which did not relate well enough to the main idea of storing and managing journeys which our program will be doing.
+
+The main challenge was picking the examples that were similar in logic rather than just similar in theme. Because of this, I had to go through several possible examples before finding the two that were suitable enough to include and analyse for this task.
+
+
+
+**08/05/2026 - Diary Entry 3 – Analysing the Chosen Projects**  
+Today I worked on analysing the projects I had selected for the research section. I looked at what each program did well, what it did poorly, and which ideas could be reused in the design of CityRide Lite.
+
+I paid particular attention to features such as how journey or trip information was entered, how results were displayed, and how the overall structure of the program or application was organised. This made it easier to compare each example to the project we are tasked to create and identify features that I could use to integrate and help with my design.
+
+One difficulty I had was making sure the analysis stayed specific. At first, some of my points were too general, so I rewrote them to focus more on actual strengths and weaknesses of the selected programs rather than judging them based on how close they were to the project brief and it's similarities.
 
 ------------------------------------------------------------------------------------------------------------------------------
