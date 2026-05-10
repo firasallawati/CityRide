@@ -21,19 +21,26 @@
 
 ------------------------------------------------------------------------------------------------------------------------------
 
-- *Add **images** for the design of your algorithm. Choose either Flowchart or JSP diagrams to demonstrate the functional elements of the algorithm. There should be multiple images for this part as you are decomposing the problem into smaller elements.*
+**Full Flowchart**
 
-- *Include a class diagram to demonstrate the class structure of the proposed program design.*
+![](Flow.png)
+
+**Subprocesses**
+![](Flow1.PNG)
+
+![](Flow2.PNG)
+
+![](Flow3.PNG)
+
+![](Flow4.PNG)
+
+![](Flow5.PNG)
+
+![](Flow6.PNG)
 
 ------------------------------------------------------------------------------------------------------------------------------
 
-### Research (minimum of 1 required, preferably 2)
-
-------------------------------------------------------------------------------------------------------------------------------
-
-*Research existing programs that solve a similar problem. The program does not have to be written in java or object orientated in nature - just solve a similar type of problem.* 
-
-*Use the strucutre below to capture your evidence:*
+### Research
 
 ------------------------------------------------------------------------------------------------------------------------------
 
