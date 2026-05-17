@@ -97,14 +97,77 @@ class JourneyManager { // In charge of the whole list of Journeys stored
         System.out.println("Reset Day"); // Not Finished
     }
 }
-class FareCalculator {
+class FareCalculator { // Calculates fares for journeys (Calculations not done yet)
 
+    // Constructor
+    public FareCalculator() {
+    }
+
+    public int calculateZonesCrossed(int fromZone, int toZone) {
+        int zonesCrossed = 0;
+        return zonesCrossed;
+    }
+
+    public double calculateBaseFare(int zonesCrossed, String timeBand) {
+        double baseFare = 0.0;
+        return baseFare;
+    }
+
+    public double calculateDiscountedFare(double baseFare, String passengerType) {
+        double discountedFare = 0.0;
+        return discountedFare;
+    }
 }
 
-class InputValidator {
+class InputValidator { // Checks if user input is valid
 
-}
+    // Constructor
+    public InputValidator() {
+    }
+
+    public boolean isValidZone(int zone) {
+        boolean isValid = false;
+
+        if (zone >= 1 && zone <= 5) {
+            isValid = true;
+        }
+        return isValid;
+    }
+
+    public boolean isValidTimeBand(String timeBand) {
+        boolean isValid = false;
+
+        if ("Peak".equalsIgnoreCase(timeBand)) {
+            isValid = true;
+        }
+        else if ("Off-Peak".equalsIgnoreCase(timeBand)) {
+            isValid = true;
+        }
+        return isValid;
+    }
+
+    public boolean isValidPassengerType(String passengerType) {
+        boolean isValid = false;
+
+        if (passengerType.equalsIgnoreCase("Adult")) {
+            isValid = true;
+        }
+        else if (passengerType.equalsIgnoreCase("Student")) {
+            isValid = true;
+        }
+        else if (passengerType.equalsIgnoreCase("Child")) {
+            isValid = true;
+        }
+        else if (passengerType.equalsIgnoreCase("Senior Citizen")) {
+            isValid = true;
+        }
+        return isValid;
+    }
 
 public class Main {
-    public static void main(String[] args) {}
+
+    public static void main(String[] args) {
+
+    }
+}
 }
