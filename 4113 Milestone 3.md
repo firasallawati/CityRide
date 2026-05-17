@@ -25,8 +25,10 @@
 
 **Reference (link):** [Intro to Java Programming 26 - isValid Method - YouTube](https://www.youtube.com/watch?v=uzCz_Hom_vE "https://www.youtube.com/watch?v=uzcz_hom_ve")
 
-**How does the research help with coding practise?:**  
-It shows how to check user input before the program continues, which is useful for making sure only valid zones, time bands, and passenger types are accepted by the program when entered by the user.**Key coding ideas you could reuse in your program:**
+**How does the research help with coding practice?:**  
+It shows how to check user input before the program continues, which is useful for making sure only valid zones, time bands, and passenger types are accepted by the program when entered by the user.
+
+**Key coding ideas you could reuse in your program:**
 
 - Use a validation method to check input first.
 - Return true or false.
@@ -41,7 +43,7 @@ It shows how to check user input before the program continues, which is useful f
 
 **Reference (link):** [Java String equalsIgnoreCase() Method - GeeksforGeeks](https://www.geeksforgeeks.org/java/java-string-equalsignorecase-method-with-examples/ "https://www.geeksforgeeks.org/java/java-string-equalsignorecase-method-with-examples/")
 
-**How does the research help with coding practise?:**  
+**How does the research help with coding practice?:**  
 This research helped me understand how to compare strings without case sensitivity, which is useful when checking user input such as time bands and passenger types. It also helped me understand that the method returns false when the compared value does not match, including when it is null, which supports safer input validation.  
 **Key coding ideas you could reuse in your program:**
 
@@ -58,7 +60,7 @@ This research helped me understand how to compare strings without case sensitivi
 
 **Reference (link):** https://stackoverflow.com/questions/66203431/menu-driven-application-using-if-else-statement-java
 
-**How does the research help with coding practise?:**  
+**How does the research help with coding practice?:**  
 It shows how to build a menu using if and else if, which matches the way my program handles different user choices from 1-6.
 
 **Key coding ideas you could reuse in your program:**
