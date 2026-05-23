@@ -343,12 +343,10 @@ Today, I began working on creating all the necessary classes which are Journey, 
 This is helped very much since the Journey class serves the purpose of storing information for every journey made. On the other hand, the JourneyManager class serves the purpose of storing the journeys made in the memory. This class is also in charge of controlling actions performed on the stored journeys including adding, deleting, resetting the day, and listing the journeys which are in the memory, and together these two classes set the main foundation of the program.  
 A challenge that I encountered was translating the flowchart into actual programming codes. The process was challenging in figuring out the appropriate way of translating the flowchart steps into classes and methods.
 
-
 **05/15/2026 - Diary Entry 2 – Working on Validation and Fare Calculation**  
 Today I worked on the InputValidator and FareCalculator classes. I also did research on the isValid method and equalsIgnoreCase() because I needed to understand how to check user input properly and needed to only allow certain inputs by the user and rejecting other ones such as for the passenger types the program should only accept the ones available. This helped me build the validation side of the program.  
 This research was important because the program needs to check that the user enters valid zones, time bands, and passenger types before calculating fares which I haven’t done yet, but coded the skeleton of it for now.  
 One problem I had was working out how to compare string values correctly without making the code more complicated than needed. I had to think about how the program should handle the user input so that it could accept valid answers and reject invalid ones. I also had to figure out how to handle null inputs which the research helped me to do with the equalsIgnoreCase.
-
 
 **05/16/2026 - Diary Entry 3 – Building the Menu System**  
 Today, I spent time working on the menu part of the application and ensuring that it displays all the options available to the user when the program is executed. I did some research on the best way to design the menu system and came across a method that uses if and else if statements in Java which was much like the way we used to do it in Python in the way of structuring it and the error handling aspect where if the user enters something that isn’t 1-6 it will say invalid input and allow them to input again.
