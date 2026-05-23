@@ -5,37 +5,39 @@ public class InputValidator { // Checks if user input is valid
     }
 
     public boolean isValidZone(int zone) {
-        boolean isValid = false;
-
         if (zone >= 1 && zone <= 5) {
-            isValid = true;
+            return true;
         }
-        return isValid;
+        else {
+            return false;
+        }
     }
 
     public boolean isValidTimeBand(String timeBand) {
         boolean isValid = false;
 
-        if ("Peak".equalsIgnoreCase(timeBand)) {
-            isValid = true;
-        } else if ("Off-Peak".equalsIgnoreCase(timeBand)) {
-            isValid = true;
+        if (timeBand.equalsIgnoreCase("Peak")) {
+            return true;
         }
-        return isValid;
+        else if (timeBand.equalsIgnoreCase("Off Peak")) {
+            return true;
+        }
+        else {
+            return false;
+        }
     }
 
     public boolean isValidPassengerType(String passengerType) {
-        boolean isValid = false;
 
         if (passengerType.equalsIgnoreCase("Adult")) {
-            isValid = true;
+            return true;
         } else if (passengerType.equalsIgnoreCase("Student")) {
-            isValid = true;
+            return true;
         } else if (passengerType.equalsIgnoreCase("Child")) {
-            isValid = true;
+            return true;
         } else if (passengerType.equalsIgnoreCase("Senior Citizen")) {
-            isValid = true;
+            return true;
         }
-        return isValid;
+        return false;
     }
 }
