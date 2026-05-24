@@ -40,4 +40,23 @@ public class InputValidator { // Checks if user input is valid
         }
         return false;
     }
+
+    public boolean isBlank(String text) {
+        if (text == null || text.trim().equals("")) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+
+    public boolean isNumeric(String text) {
+        try {
+            Integer.parseInt(text);
+            return true;
+        }
+        catch (Exception e) {
+            return false;
+        }
+    }
 }
