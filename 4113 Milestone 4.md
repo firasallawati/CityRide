@@ -379,8 +379,6 @@ time!");
 
 }
 
-
-
 #### **Journey.java:**
 
 import java.math.BigDecimal;  
@@ -476,8 +474,6 @@ baseFare.subtract(discountedFare);  
         System.*out*.println();    
     }    
 }
-
-
 
 #### **JourneyManager.java:**
 
@@ -845,8 +841,6 @@ mostExpensive.getJourneyId());
 
 }
 
-
-
 #### **InputValidator.java:**
 
 public class InputValidator {  
@@ -928,8 +922,6 @@ isValidPassengerType(String passengerType) {  
         <mark>}</mark>    
     <mark>}</mark>    
 }
-
-
 
 #### **FareCalculator.java:**
 

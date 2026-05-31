@@ -26,17 +26,15 @@
 ![](Flow.png)
 
 **Subprocesses**
-![](Flow1.PNG)
+<img title="" src="Flow1.PNG" alt="" width="242">
 
-![](Flow2.PNG)
+<img title="" src="Flow2.PNG" alt="" width="246">
 
-![](Flow3.PNG)
+<img title="" src="Flow3.PNG" alt="" width="295">
 
-![](Flow4.PNG)
+<img src="Flow4.PNG" title="" alt="" width="202">
 
-![](Flow5.PNG)
-
-![](Flow6.PNG)
+<img src="Flow5.PNG" title="" alt="" width="274">
 
 ------------------------------------------------------------------------------------------------------------------------------
 
@@ -126,16 +124,12 @@ Furthermore, I made sure the flowchart had the functions that were listed in the
 
 One issue I faced was that the flowchart was filled with unnecessary processes which I decided to delete as they didn't have much impact on the function itself which made the flowchart much more clearer and easy to follow.
 
-
-
 **07/05/2026 - Diary Entry 2 – Researching Similar Programs**  
 Today I began the research section for Milestone 2 by looking for programs that solve a similar type of problem. I searched for travel-related, journey-tracking and trip-recording systems so I could compare them with our project and find useful design ideas. I focused on finding examples that had some connection to recording journeys, displaying trip information or organising user input clearly.
 
 While doing this, I realised that not every travel app was a good match for the task as some examples were mainly focused on bookings, maps or route planning, which did not relate well enough to the main idea of storing and managing journeys which our program will be doing.
 
 The main challenge was picking the examples that were similar in logic rather than just similar in theme. Because of this, I had to go through several possible examples before finding the two that were suitable enough to include and analyse for this task.
-
-
 
 **08/05/2026 - Diary Entry 3 – Analysing the Chosen Projects**  
 Today I worked on analysing the projects I had selected for the research section. I looked at what each program did well, what it did poorly, and which ideas could be reused in the design of CityRide Lite.
