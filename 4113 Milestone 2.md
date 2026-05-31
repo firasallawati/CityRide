@@ -25,7 +25,7 @@
 
 ![](Flow.png)
 
-**Subprocesses**
+**Subprocesses:**
 <img title="" src="Flow1.PNG" alt="" width="242">
 
 <img title="" src="Flow2.PNG" alt="" width="246">
@@ -35,6 +35,10 @@
 <img src="Flow4.PNG" title="" alt="" width="202">
 
 <img src="Flow5.PNG" title="" alt="" width="274">
+
+**Class Diagram:**
+
+![](Class_Diagram.PNG)
 
 ------------------------------------------------------------------------------------------------------------------------------
 

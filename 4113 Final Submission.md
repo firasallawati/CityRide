@@ -8,7 +8,7 @@
 | Module Tutor Name  | Jonathan Shore                                                        |
 | Student ID Number  | P466146                                                               |
 | Date of Submission | 31/05/2026                                                            |
-| Word Count         |                                                                       |
+| Word Count         | 860                                                                   |
 | GItHub Link        | https://github.com/firasallawati/T0466146_Firas_4113                  |
 
 - [x] *I confirm that this assignment is my own work. Where I have referred to academic sources, I have provided in-text citations and included the sources in  
@@ -58,17 +58,31 @@ The following key functional requirements were identified from the assignment br
 
 ## Algorithm Design
 
-FlowChart:
+**FlowChart:**
+![](Flow.png)
+
+**Subprocesses:**
+<img title="" src="Flow1.PNG" alt="" width="242">
+
+<img title="" src="Flow2.PNG" alt="" width="246">
+
+<img title="" src="Flow3.PNG" alt="" width="295">
+
+<img src="Flow4.PNG" title="" alt="" width="202">
+
+<img src="Flow5.PNG" title="" alt="" width="274">
 
 **[INSERT FLOWCHART MIRO]**
 
-Class Diagram:
+**Class Diagram:**
 
-**[INSERT CLASS DIAGRAM MIRO]**
+![](Class_Diagram.PNG)
 
 ---
 
 ## Testing
+
+**Testing Table:**
 
 ---
 
