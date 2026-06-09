@@ -72,8 +72,6 @@ The following key functional requirements were identified from the assignment br
 
 <img src="Flow5.PNG" title="" alt="" width="274">
 
-**[INSERT FLOWCHART MIRO]**
-
 **Class Diagram:**
 
 ![](Class_Diagram.PNG)
