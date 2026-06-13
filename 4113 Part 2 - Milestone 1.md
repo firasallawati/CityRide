@@ -8,7 +8,7 @@
 | Module Tutor Name  | Jonathan Shore                                                        |
 | Student ID Number  | P466146                                                               |
 | Date of Submission | 14/06/2026                                                            |
-| Word Count         |                                                                       |
+| Word Count         | 2320                                                                  |
 | GItHub Link        | https://github.com/firasallawati/T0466146_Firas_4113                  |
 
 - [x] *I confirm that this assignment is my own work. Where I have referred to academic sources, I have provided in-text citations and included the sources in  
@@ -128,7 +128,7 @@ The purpose of the program is to extend the Part 1 **CityRide Lite** system in
 
 ---
 
-[Insert Gantt Chart]
+![](GanttChart_Part2-1.png)
 
 ---
 
@@ -144,9 +144,9 @@ The purpose of the program is to extend the Part 1 **CityRide Lite** system in
 
 ![](Flow10%202.PNG)
 
-![](Flow%202.PNG)
 
 
+![](Flow%203.PNG)
 
 <img src="Flow1%202.PNG" title="" alt="" width="224">
 
@@ -158,11 +158,9 @@ The purpose of the program is to extend the Part 1 **CityRide Lite** system in
 
 <img src="Flow5%202.PNG" title="" alt="" width="196">
 
-<img title="" src="Flow6%202.PNG" alt="" width="290">
+<img title="" src="Flow6%202.PNG" alt="" width="608">
 
-<img src="Flow7%202.PNG" title="" alt="" width="399">
-
-
+<img title="" src="Flow7%202.PNG" alt="" width="643">
 
 ---
 
@@ -232,5 +230,29 @@ In this screenshot of the application, after selecting the desired profile the u
 ### Diary Entries
 
 ---
+
+**07/06/2026 - Diary Entry 1 – Analysis & Planning**
+
+Today, I completed the analysis and planning stage of the CityRide Lite project. I reviewed the assignment brief carefully to identify the new key functional requirements, including the rider and admin roles, profile handling, journey management, fare calculation, and file handling. This stage was important because it gave me a clear understanding of what the system requires before the coding begins. The main requirements that are asked in Part 2 is to extend the application from Part 1 into a more advanced version with persistent storage and admin functionality.
+
+The main purpose of this planning stage was to break the system down into small manageable parts so that the later design and implementation work would be more organised. I considered how the rider profile, journeys, configuration data, and reporting features would need to interact with each other.
+
+A problem I encountered during the analysis & planning stage was making sure I did not miss any new requirements from the brief as new requirements could get confused with the requirements I did in Part 1 of the project and especially the smaller details such as validation, file formats, and summary output. To solve this, I made sure to read the brief several times and grouped the requirements into logical sections while taking notes throughout.
+
+**10/06/2026 - Diary Entry 2 – Create Algorithms**
+
+Today, I created both the flowchart and the class diagram for the program in order to visualise the working and coding process of the program before actually starting. Using the flowchart created in Part 1, which already included the Main Menu used for entering the information about the Rider's journey, I added three additional subprocesses, such as Role Selection Menu, Admin Login Menu, and Rider Menu. It helped greatly when visualising how decisions and loops could be used in my program in the implementation stage of the project.
+
+Furthermore, I created the class diagram that would help me better understand what classes I will need in the future and how they will relate to each other within the application.
+
+One of the problems I had while creating my diagrams was determining the amount of detail in them in order not to overload them and making them too complex and hard to read and understand. I solved this by focusing on the main features required by the assignment and keeping the diagrams clear and readable.
+
+**13/06/2026 - Diary Entry 3 – Research**
+
+For the research stage, I looked at examples of programs that were relevant to the design of CityRide Lite Part 2. One example was a Register & Login system which allowed the user to create a new profile then log into it, which is beneficial for my project as it has the base concept that it needs which is to have different saved profiles that a user can log into and use. I also looked at a Java CSV writing example using PrintWriter, which was useful for understanding how journey data and reports could be exported in CSV format.
+
+The reason for carrying out this research was to support my design decisions with examples that related directly to the assignment brief. The role-based login example helped me think about the separation between Rider and Admin features, while the CSV example helped me plan how reports and journey records could be stored clearly in files.
+
+One problem I encountered was finding good examples on GitHub as most of the ones I looked at were either too simple that they don’t save profiles or too advanced using android in their code to store data, I overcame this by going to different websites such as YouTube to find more examples that will help the implementation stage for the project.
 
 ---
