@@ -1,8 +1,7 @@
 import java.math.BigDecimal;
 
-public class Journey { // Gathers ones journey details and stores it
+public class Journey {
 
-    // Attributes
     private int journeyId;
     private String journeyDate;
     private int fromZone;
@@ -11,13 +10,12 @@ public class Journey { // Gathers ones journey details and stores it
     private String passengerType;
     private int zonesCrossed;
     private BigDecimal baseFare;
-    private BigDecimal discountApplied;
+    private BigDecimal discountedFare;
     private BigDecimal chargedFare;
 
-    // Constructors
     public Journey(int journeyId, String journeyDate, int fromZone, int toZone, String timeBand,
                    String passengerType, int zonesCrossed, BigDecimal baseFare,
-                   BigDecimal discountApplied, BigDecimal chargedFare) {
+                   BigDecimal discountedFare, BigDecimal chargedFare) {
         this.journeyId = journeyId;
         this.journeyDate = journeyDate;
         this.fromZone = fromZone;
@@ -26,7 +24,7 @@ public class Journey { // Gathers ones journey details and stores it
         this.passengerType = passengerType;
         this.zonesCrossed = zonesCrossed;
         this.baseFare = baseFare;
-        this.discountApplied = discountApplied;
+        this.discountedFare = discountedFare;
         this.chargedFare = chargedFare;
     }
 
@@ -62,52 +60,16 @@ public class Journey { // Gathers ones journey details and stores it
         return baseFare;
     }
 
-    public BigDecimal getDiscountApplied() {
-        return discountApplied;
+    public BigDecimal getDiscountedFare() {
+        return discountedFare;
     }
 
     public BigDecimal getChargedFare() {
         return chargedFare;
     }
 
-    public void setJourneyId(int journeyId) {
-        this.journeyId = journeyId;
-    }
-
-    public void setJourneyDate(String journeyDate) {
-        this.journeyDate = journeyDate;
-    }
-
-    public void setFromZone(int fromZone) {
-        this.fromZone = fromZone;
-    }
-
-    public void setToZone(int toZone) {
-        this.toZone = toZone;
-    }
-
-    public void setTimeBand(String timeBand) {
-        this.timeBand = timeBand;
-    }
-
-    public void setPassengerType(String passengerType) {
-        this.passengerType = passengerType;
-    }
-
-    public void setZonesCrossed(int zonesCrossed) {
-        this.zonesCrossed = zonesCrossed;
-    }
-
-    public void setBaseFare(BigDecimal baseFare) {
-        this.baseFare = baseFare;
-    }
-
-    public void setDiscountApplied(BigDecimal discountApplied) {
-        this.discountApplied = discountApplied;
-    }
-
-    public void setChargedFare(BigDecimal chargedFare) {
-        this.chargedFare = chargedFare;
+    public BigDecimal getDiscountAmount() {
+        return baseFare.subtract(discountedFare);
     }
 
     public void displayJourney() {
@@ -119,7 +81,7 @@ public class Journey { // Gathers ones journey details and stores it
         System.out.println("Passenger Type: " + passengerType);
         System.out.println("Zones Crossed: " + zonesCrossed);
         System.out.println("Base Fare: £" + baseFare);
-        System.out.println("Discount Applied: £" + discountApplied);
+        System.out.println("Discount Applied: £" + getDiscountAmount());
         System.out.println("Charged Fare: £" + chargedFare);
         System.out.println();
     }
