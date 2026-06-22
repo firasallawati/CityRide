@@ -144,8 +144,6 @@ The purpose of the program is to extend the Part 1 **CityRide Lite** system in
 
 ![](Flow10%202.PNG)
 
-
-
 ![](Flow%203.PNG)
 
 <img src="Flow1%202.PNG" title="" alt="" width="224">
