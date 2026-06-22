@@ -1,6 +1,6 @@
 import java.math.BigDecimal;
 
-public class Journey { // Gathers one Journey's details and stores it
+public class Journey { // Gathers ones journey details and stores it
 
     // Attributes
     private int journeyId;
@@ -11,13 +11,13 @@ public class Journey { // Gathers one Journey's details and stores it
     private String passengerType;
     private int zonesCrossed;
     private BigDecimal baseFare;
-    private BigDecimal discountedFare;
+    private BigDecimal discountApplied;
     private BigDecimal chargedFare;
 
-    // Constructor
-    public Journey(int journeyId, String journeyDate, int fromZone, int toZone,
-                   String timeBand, String passengerType, int zonesCrossed, BigDecimal baseFare,
-                   BigDecimal discountedFare, BigDecimal chargedFare) {
+    // Constructors
+    public Journey(int journeyId, String journeyDate, int fromZone, int toZone, String timeBand,
+                   String passengerType, int zonesCrossed, BigDecimal baseFare,
+                   BigDecimal discountApplied, BigDecimal chargedFare) {
         this.journeyId = journeyId;
         this.journeyDate = journeyDate;
         this.fromZone = fromZone;
@@ -26,7 +26,7 @@ public class Journey { // Gathers one Journey's details and stores it
         this.passengerType = passengerType;
         this.zonesCrossed = zonesCrossed;
         this.baseFare = baseFare;
-        this.discountedFare = discountedFare;
+        this.discountApplied = discountApplied;
         this.chargedFare = chargedFare;
     }
 
@@ -62,16 +62,52 @@ public class Journey { // Gathers one Journey's details and stores it
         return baseFare;
     }
 
-    public BigDecimal getDiscountedFare() {
-        return discountedFare;
+    public BigDecimal getDiscountApplied() {
+        return discountApplied;
     }
 
     public BigDecimal getChargedFare() {
         return chargedFare;
     }
 
-    public BigDecimal getDiscountAmount() {
-        return baseFare.subtract(discountedFare);
+    public void setJourneyId(int journeyId) {
+        this.journeyId = journeyId;
+    }
+
+    public void setJourneyDate(String journeyDate) {
+        this.journeyDate = journeyDate;
+    }
+
+    public void setFromZone(int fromZone) {
+        this.fromZone = fromZone;
+    }
+
+    public void setToZone(int toZone) {
+        this.toZone = toZone;
+    }
+
+    public void setTimeBand(String timeBand) {
+        this.timeBand = timeBand;
+    }
+
+    public void setPassengerType(String passengerType) {
+        this.passengerType = passengerType;
+    }
+
+    public void setZonesCrossed(int zonesCrossed) {
+        this.zonesCrossed = zonesCrossed;
+    }
+
+    public void setBaseFare(BigDecimal baseFare) {
+        this.baseFare = baseFare;
+    }
+
+    public void setDiscountApplied(BigDecimal discountApplied) {
+        this.discountApplied = discountApplied;
+    }
+
+    public void setChargedFare(BigDecimal chargedFare) {
+        this.chargedFare = chargedFare;
     }
 
     public void displayJourney() {
@@ -83,7 +119,7 @@ public class Journey { // Gathers one Journey's details and stores it
         System.out.println("Passenger Type: " + passengerType);
         System.out.println("Zones Crossed: " + zonesCrossed);
         System.out.println("Base Fare: £" + baseFare);
-        System.out.println("Discount Applied: £" + getDiscountAmount());
+        System.out.println("Discount Applied: £" + discountApplied);
         System.out.println("Charged Fare: £" + chargedFare);
         System.out.println();
     }

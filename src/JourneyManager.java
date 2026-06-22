@@ -1,6 +1,6 @@
-import java.util.ArrayList;
-import java.math.RoundingMode;
 import java.math.BigDecimal;
+import java.math.RoundingMode;
+import java.util.ArrayList;
 
 public class JourneyManager { // In charge of the whole list of Journeys stored
 
@@ -12,13 +12,43 @@ public class JourneyManager { // In charge of the whole list of Journeys stored
         journeys = new ArrayList<>();
     }
 
+    // Get Methods
+    public ArrayList<Journey> getJourneys() {
+        return journeys;
+    }
+
+    public Journey findJourneyById(int journeyId) {
+        int i;
+        for (i = 0; i < journeys.size(); i++) {
+            if (journeys.get(i).getJourneyId() == journeyId) {
+                return journeys.get(i);
+            }
+        }
+        return null;
+    }
+
+    public BigDecimal getPassengerChargedTotal(String passengerType) {
+        BigDecimal total = BigDecimal.ZERO;
+        int i;
+        for (i = 0; i < journeys.size(); i++) {
+            if (journeys.get(i).getPassengerType().equalsIgnoreCase(passengerType)) {
+                total = total.add(journeys.get(i).getChargedFare());
+            }
+        }
+        return total;
+    }
+
+    // Set Methods
+    public void setJourneys(ArrayList<Journey> journeys) {
+        this.journeys = journeys;
+    }
+
     public void addJourney(Journey journey) { // Adds new journey to the array
         journeys.add(journey);
     }
 
     public void displayAllJourneys() { // Display stored journeys
         int i;
-
         if (journeys.size() == 0) {
             System.out.println("No journeys stored.");
         }
@@ -29,23 +59,9 @@ public class JourneyManager { // In charge of the whole list of Journeys stored
         }
     }
 
-    public Journey findJourneyById(int journeyId) {
-        int i;
-
-        for (i = 0; i < journeys.size(); i++) {
-            if (journeys.get(i).getJourneyId() == journeyId) {
-                return journeys.get(i);
-            }
-        }
-
-        return null;
-    }
-
     public void removeJourneyById(int journeyId) { // Delete Journey using unique ID
         Journey journey;
-
         journey = findJourneyById(journeyId);
-
         if (journey != null) {
             journeys.remove(journey);
         }
@@ -53,19 +69,6 @@ public class JourneyManager { // In charge of the whole list of Journeys stored
 
     public void resetJourneys() { // Delete all stored journeys
         journeys.clear();
-    }
-
-    public BigDecimal getPassengerChargedTotal(String passengerType) {
-        BigDecimal total = BigDecimal.ZERO;
-        int i;
-
-        for (i = 0; i < journeys.size(); i++) {
-            if (journeys.get(i).getPassengerType().equalsIgnoreCase(passengerType)) {
-                total = total.add(journeys.get(i).getChargedFare());
-            }
-        }
-
-        return total;
     }
 
     public void displayCategoryCounts() {
@@ -77,7 +80,6 @@ public class JourneyManager { // In charge of the whole list of Journeys stored
         int zone4Count = 0;
         int zone5Count = 0;
         int i;
-
         if (journeys.size() == 0) {
             System.out.println("No journeys stored.");
         }
@@ -89,43 +91,22 @@ public class JourneyManager { // In charge of the whole list of Journeys stored
                 else {
                     offPeakCount++;
                 }
-
-                if (journeys.get(i).getFromZone() == 1) {
+                if (journeys.get(i).getFromZone() == 1 || journeys.get(i).getToZone() == 1) {
                     zone1Count++;
                 }
-                else if (journeys.get(i).getToZone() == 1) {
-                    zone1Count++;
-                }
-
-                if (journeys.get(i).getFromZone() == 2) {
+                if (journeys.get(i).getFromZone() == 2 || journeys.get(i).getToZone() == 2) {
                     zone2Count++;
                 }
-                else if (journeys.get(i).getToZone() == 2) {
-                    zone2Count++;
-                }
-
-                if (journeys.get(i).getFromZone() == 3) {
+                if (journeys.get(i).getFromZone() == 3 || journeys.get(i).getToZone() == 3) {
                     zone3Count++;
                 }
-                else if (journeys.get(i).getToZone() == 3) {
-                    zone3Count++;
-                }
-
-                if (journeys.get(i).getFromZone() == 4) {
+                if (journeys.get(i).getFromZone() == 4 || journeys.get(i).getToZone() == 4) {
                     zone4Count++;
                 }
-                else if (journeys.get(i).getToZone() == 4) {
-                    zone4Count++;
-                }
-
-                if (journeys.get(i).getFromZone() == 5) {
-                    zone5Count++;
-                }
-                else if (journeys.get(i).getToZone() == 5) {
+                if (journeys.get(i).getFromZone() == 5 || journeys.get(i).getToZone() == 5) {
                     zone5Count++;
                 }
             }
-
             System.out.println("Category Counts");
             System.out.println("Peak Journeys: " + peakCount);
             System.out.println("Off-Peak Journeys: " + offPeakCount);
@@ -142,23 +123,18 @@ public class JourneyManager { // In charge of the whole list of Journeys stored
         BigDecimal average = BigDecimal.ZERO;
         Journey mostExpensive = null;
         int i;
-
         if (journeys.size() == 0) {
             System.out.println("No journeys stored.");
         }
         else {
             mostExpensive = journeys.get(0);
-
             for (i = 0; i < journeys.size(); i++) {
                 total = total.add(journeys.get(i).getChargedFare());
-
                 if (journeys.get(i).getChargedFare().compareTo(mostExpensive.getChargedFare()) > 0) {
                     mostExpensive = journeys.get(i);
                 }
             }
-
             average = total.divide(new BigDecimal(journeys.size()), 2, RoundingMode.HALF_UP);
-
             System.out.println("Daily Summary");
             System.out.println("Total Journeys: " + journeys.size());
             System.out.println("Total Cost Charged: £" + total);
@@ -178,14 +154,12 @@ public class JourneyManager { // In charge of the whole list of Journeys stored
         int count = 0;
         BigDecimal total = BigDecimal.ZERO;
         int i;
-
         for (i = 0; i < journeys.size(); i++) {
             if (journeys.get(i).getPassengerType().equalsIgnoreCase(passengerType)) {
                 count++;
                 total = total.add(journeys.get(i).getChargedFare());
             }
         }
-
-        System.out.println(passengerType + " Journeys: " + count + " Total: £" + total);
+        System.out.println(passengerType + " Journeys: " + count + " | Total: £" + total);
     }
 }

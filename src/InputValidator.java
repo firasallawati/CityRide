@@ -59,4 +59,39 @@ public class InputValidator { // Checks if user input is valid
             return false;
         }
     }
+
+    public boolean isValidPaymentOption(String paymentOption) {
+        if (paymentOption.equalsIgnoreCase("Contactless")) {
+            return true;
+        }
+        else if (paymentOption.equalsIgnoreCase("Cash")) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+
+    public boolean isYesNo(String text) {
+        if (text.equalsIgnoreCase("yes")) {
+            return true;
+        }
+        else if (text.equalsIgnoreCase("no")) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+
+    public boolean isPositiveDecimal(String text) {
+        try {
+            double number = Double.parseDouble(text);
+            return number >= 0;
+        }
+        catch (Exception e) {
+            return false;
+        }
+    }
+
 }
