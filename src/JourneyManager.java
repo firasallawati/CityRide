@@ -47,6 +47,17 @@ public class JourneyManager { // In charge of the whole list of Journeys stored
         journeys.add(journey);
     }
 
+    public boolean editJourney(int journeyId, Journey updatedJourney) {
+        int i;
+        for (i = 0; i < journeys.size(); i++) {
+            if (journeys.get(i).getJourneyId() == journeyId) {
+                journeys.set(i, updatedJourney);
+                return true;
+            }
+        }
+        return false;
+    }
+
     public void displayAllJourneys() { // Display stored journeys
         int i;
         if (journeys.size() == 0) {

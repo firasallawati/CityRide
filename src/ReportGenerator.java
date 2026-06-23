@@ -1,3 +1,4 @@
+import java.io.File;
 import java.io.PrintWriter;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
@@ -15,12 +16,17 @@ public class ReportGenerator { // Creates CSV and text reports
         BigDecimal totalSavings = BigDecimal.ZERO;
 
         try {
+            File folder = new File("reports");
+            if (!folder.exists()) {
+                folder.mkdirs();
+            }
+
             PrintWriter writer = new PrintWriter(fileName);
             writer.println("RiderName,PassengerType,JourneyId,Date,FromZone,ToZone,TimeBand,ZonesCrossed,BaseFare,DiscountApplied,ChargedFare");
 
             for (i = 0; i < journeyManager.getJourneys().size(); i++) {
                 Journey journey = journeyManager.getJourneys().get(i);
-                BigDecimal discountApplied = journey.getBaseFare().subtract(journey.getDiscountedFare());
+                BigDecimal discountApplied = journey.getBaseFare().subtract(journey.getChargedFare());
 
                 totalCost = totalCost.add(journey.getChargedFare());
                 totalBaseCost = totalBaseCost.add(journey.getBaseFare());
@@ -59,6 +65,11 @@ public class ReportGenerator { // Creates CSV and text reports
         int i;
         int peakCount = 0;
         int offPeakCount = 0;
+        int zone1Count = 0;
+        int zone2Count = 0;
+        int zone3Count = 0;
+        int zone4Count = 0;
+        int zone5Count = 0;
         BigDecimal totalCost = BigDecimal.ZERO;
         BigDecimal totalBaseCost = BigDecimal.ZERO;
         BigDecimal averageCost = BigDecimal.ZERO;
@@ -66,6 +77,11 @@ public class ReportGenerator { // Creates CSV and text reports
         Journey mostExpensive = null;
 
         try {
+            File folder = new File("reports");
+            if (!folder.exists()) {
+                folder.mkdirs();
+            }
+
             PrintWriter writer = new PrintWriter(fileName);
 
             if (journeyManager.getJourneys().size() > 0) {
@@ -83,6 +99,22 @@ public class ReportGenerator { // Creates CSV and text reports
                 }
                 else {
                     offPeakCount++;
+                }
+
+                if (journey.getFromZone() == 1 || journey.getToZone() == 1) {
+                    zone1Count++;
+                }
+                if (journey.getFromZone() == 2 || journey.getToZone() == 2) {
+                    zone2Count++;
+                }
+                if (journey.getFromZone() == 3 || journey.getToZone() == 3) {
+                    zone3Count++;
+                }
+                if (journey.getFromZone() == 4 || journey.getToZone() == 4) {
+                    zone4Count++;
+                }
+                if (journey.getFromZone() == 5 || journey.getToZone() == 5) {
+                    zone5Count++;
                 }
 
                 if (mostExpensive != null && journey.getChargedFare().compareTo(mostExpensive.getChargedFare()) > 0) {
@@ -111,6 +143,11 @@ public class ReportGenerator { // Creates CSV and text reports
 
             writer.println("Peak Journeys: " + peakCount);
             writer.println("Off-Peak Journeys: " + offPeakCount);
+            writer.println("Journeys Involving Zone 1: " + zone1Count);
+            writer.println("Journeys Involving Zone 2: " + zone2Count);
+            writer.println("Journeys Involving Zone 3: " + zone3Count);
+            writer.println("Journeys Involving Zone 4: " + zone4Count);
+            writer.println("Journeys Involving Zone 5: " + zone5Count);
             writer.println("Savings Compared To Base Fares: £" + totalSavings);
 
             if (totalSavings.compareTo(BigDecimal.ZERO) > 0) {

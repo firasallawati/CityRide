@@ -1,77 +1,65 @@
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 
-public class FareCalculator { // Calculates fares for journeys (Calculations not done yet)
+public class FareCalculator {
 
-    // Constructor
     public FareCalculator() {
     }
 
     public int calculateZonesCrossed(int fromZone, int toZone) {
-        int zonesCrossed = 0;
+        int zonesCrossed;
         zonesCrossed = Math.abs(toZone - fromZone) + 1;
         return zonesCrossed;
     }
 
-    public BigDecimal calculateBaseFare(int fromZone, int toZone, String timeBand) {
-        // Calculates the base fare of the journey using timeband & zones crossed
-
-        CityRideDataset.TimeBand selectedTimeBand;
+    public BigDecimal calculateBaseFare(int fromZone, int toZone, String timeBand, Config config) {
+        String fareKey;
         BigDecimal baseFare;
 
         if (timeBand.equalsIgnoreCase("Peak")) {
-            selectedTimeBand = CityRideDataset.TimeBand.PEAK;
+            timeBand = "Peak";
         }
-        else {
-            selectedTimeBand = CityRideDataset.TimeBand.OFF_PEAK;
+        else if (timeBand.equalsIgnoreCase("Off-Peak")) {
+            timeBand = "Off-Peak";
         }
 
-        baseFare = CityRideDataset.getBaseFare(fromZone, toZone, selectedTimeBand);
+        fareKey = fromZone + "-" + toZone + "-" + timeBand;
+        baseFare = config.getBaseFares().get(fareKey);
+
+        if (baseFare == null) {
+            baseFare = BigDecimal.ZERO;
+        }
+
         return baseFare.setScale(2, RoundingMode.HALF_UP);
     }
 
-    public BigDecimal calculateDiscountedFare(BigDecimal baseFare, String passengerType) { // Applies passenger discount to the base fare
-        BigDecimal discountRate = BigDecimal.ZERO;
+    public BigDecimal calculateDiscountedFare(BigDecimal baseFare, String passengerType, Config config) {
+        BigDecimal discountRate;
         BigDecimal discountAmount;
         BigDecimal discountedFare;
 
-        if (passengerType.equalsIgnoreCase("Adult")) {
-            discountRate = CityRideDataset.DISCOUNT_RATE.get(CityRideDataset.PassengerType.ADULT);
-        }
-        else if (passengerType.equalsIgnoreCase("Student")) {
-            discountRate = CityRideDataset.DISCOUNT_RATE.get(CityRideDataset.PassengerType.STUDENT);
-        }
-        else if (passengerType.equalsIgnoreCase("Child")) {
-            discountRate = CityRideDataset.DISCOUNT_RATE.get(CityRideDataset.PassengerType.CHILD);
-        }
-        else if (passengerType.equalsIgnoreCase("Senior Citizen")) {
-            discountRate = CityRideDataset.DISCOUNT_RATE.get(CityRideDataset.PassengerType.SENIOR_CITIZEN);
+        discountRate = config.getPassengerDiscounts().get(passengerType);
+
+        if (discountRate == null) {
+            discountRate = BigDecimal.ZERO;
         }
 
-        discountAmount = baseFare.multiply(discountRate).setScale(2, RoundingMode.HALF_UP); // Calculates the amount that will be discounted
-        discountedFare = baseFare.subtract(discountAmount).setScale(2, RoundingMode.HALF_UP); // Calculates the final fare after discount
+        discountAmount = baseFare.multiply(discountRate).setScale(2, RoundingMode.HALF_UP);
+        discountedFare = baseFare.subtract(discountAmount).setScale(2, RoundingMode.HALF_UP);
 
         return discountedFare;
     }
 
-    public BigDecimal calculateChargedFare(BigDecimal discountedFare, String passengerType, BigDecimal currentTotal) {
-        // Calculates how much should be charged after considering how much the passenger has spent today (cap).
-
-        BigDecimal chargedFare = BigDecimal.ZERO;
-        BigDecimal dailyCap = BigDecimal.ZERO;
+    public BigDecimal calculateChargedFare(BigDecimal discountedFare, String passengerType, BigDecimal currentTotal, Config config) {
+        BigDecimal chargedFare;
+        BigDecimal dailyCap;
         BigDecimal remainingCap;
 
-        if (passengerType.equalsIgnoreCase("Adult")) {
-            dailyCap = CityRideDataset.DAILY_CAP.get(CityRideDataset.PassengerType.ADULT);
-        }
-        else if (passengerType.equalsIgnoreCase("Student")) {
-            dailyCap = CityRideDataset.DAILY_CAP.get(CityRideDataset.PassengerType.STUDENT);
-        }
-        else if (passengerType.equalsIgnoreCase("Child")) {
-            dailyCap = CityRideDataset.DAILY_CAP.get(CityRideDataset.PassengerType.CHILD);
-        }
-        else if (passengerType.equalsIgnoreCase("Senior Citizen")) {
-            dailyCap = CityRideDataset.DAILY_CAP.get(CityRideDataset.PassengerType.SENIOR_CITIZEN);
+        chargedFare = BigDecimal.ZERO;
+        dailyCap = config.getDailyCaps().get(passengerType);
+
+        if (dailyCap == null) {
+            dailyCap = BigDecimal.ZERO;
         }
 
         remainingCap = dailyCap.subtract(currentTotal).setScale(2, RoundingMode.HALF_UP);
@@ -89,25 +77,18 @@ public class FareCalculator { // Calculates fares for journeys (Calculations not
         return chargedFare.setScale(2, RoundingMode.HALF_UP);
     }
 
-    public boolean hasReachedDailyCap(String passengerType, BigDecimal currentTotal) {
-        // Checks if passenger has already reached daily cap
-        boolean hasReachedCap = false;
-        BigDecimal dailyCap = BigDecimal.ZERO;
+    public boolean hasReachedDailyCap(String passengerType, BigDecimal currentTotal, Config config) {
+        boolean hasReachedCap;
+        BigDecimal dailyCap;
 
-        if (passengerType.equalsIgnoreCase("Adult")) {
-            dailyCap = CityRideDataset.DAILY_CAP.get(CityRideDataset.PassengerType.ADULT);
-        }
-        else if (passengerType.equalsIgnoreCase("Student")) {
-            dailyCap = CityRideDataset.DAILY_CAP.get(CityRideDataset.PassengerType.STUDENT);
-        }
-        else if (passengerType.equalsIgnoreCase("Child")) {
-            dailyCap = CityRideDataset.DAILY_CAP.get(CityRideDataset.PassengerType.CHILD);
-        }
-        else if (passengerType.equalsIgnoreCase("Senior Citizen")) {
-            dailyCap = CityRideDataset.DAILY_CAP.get(CityRideDataset.PassengerType.SENIOR_CITIZEN);
+        hasReachedCap = false;
+        dailyCap = config.getDailyCaps().get(passengerType);
+
+        if (dailyCap == null) {
+            dailyCap = BigDecimal.ZERO;
         }
 
-        if (currentTotal.compareTo(dailyCap) >= 0) { // Compares passenger type cap to total
+        if (currentTotal.compareTo(dailyCap) >= 0) {
             hasReachedCap = true;
         }
 

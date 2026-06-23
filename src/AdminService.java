@@ -1,19 +1,21 @@
 import java.math.BigDecimal;
-import java.util.Scanner;
 
-public class AdminService { // Handles admin login and config changes
+public class AdminService {
 
-    // Constructor
     public AdminService() {
     }
 
     public boolean login(String password, Config config) {
+        boolean isCorrectPassword;
+
         if (config.getAdminPassword().equals(password)) {
-            return true;
+            isCorrectPassword = true;
         }
         else {
-            return false;
+            isCorrectPassword = false;
         }
+
+        return isCorrectPassword;
     }
 
     public void displayConfig(Config config) {
@@ -25,12 +27,12 @@ public class AdminService { // Handles admin login and config changes
         System.out.println("Base Fares: " + config.getBaseFares());
     }
 
-    public void updatePassengerDiscount(Config config, String passengerType, BigDecimal discount) {
-        if (discount.compareTo(BigDecimal.ZERO) < 0 || discount.compareTo(BigDecimal.ONE) > 0) {
-            System.out.println("Invalid discount value.");
+    public void updatePassengerDiscount(Config config, String passengerType, BigDecimal discountValue) {
+        if (discountValue.compareTo(BigDecimal.ZERO) < 0 || discountValue.compareTo(BigDecimal.ONE) > 0) {
+            System.out.println("Invalid discount value. Enter a value between 0 and 1.");
         }
         else {
-            config.getPassengerDiscounts().put(passengerType, discount);
+            config.getPassengerDiscounts().put(passengerType, discountValue);
             System.out.println("Passenger discount updated successfully.");
         }
     }
@@ -41,16 +43,16 @@ public class AdminService { // Handles admin login and config changes
             System.out.println("Passenger discount deleted successfully.");
         }
         else {
-            System.out.println("Passenger type not found.");
+            System.out.println("Passenger discount not found.");
         }
     }
 
-    public void updateDailyCap(Config config, String passengerType, BigDecimal cap) {
-        if (cap.compareTo(BigDecimal.ZERO) < 0) {
-            System.out.println("Invalid daily cap.");
+    public void updateDailyCap(Config config, String passengerType, BigDecimal dailyCapValue) {
+        if (dailyCapValue.compareTo(BigDecimal.ZERO) < 0) {
+            System.out.println("Invalid daily cap value.");
         }
         else {
-            config.getDailyCaps().put(passengerType, cap);
+            config.getDailyCaps().put(passengerType, dailyCapValue);
             System.out.println("Daily cap updated successfully.");
         }
     }
@@ -61,16 +63,16 @@ public class AdminService { // Handles admin login and config changes
             System.out.println("Daily cap deleted successfully.");
         }
         else {
-            System.out.println("Passenger type not found.");
+            System.out.println("Daily cap not found.");
         }
     }
 
-    public void updateBaseFare(Config config, String fareKey, BigDecimal fare) {
-        if (fare.compareTo(BigDecimal.ZERO) < 0) {
-            System.out.println("Invalid base fare.");
+    public void updateBaseFare(Config config, String fareKey, BigDecimal fareAmount) {
+        if (fareAmount.compareTo(BigDecimal.ZERO) < 0) {
+            System.out.println("Invalid base fare amount.");
         }
         else {
-            config.getBaseFares().put(fareKey, fare);
+            config.getBaseFares().put(fareKey, fareAmount);
             System.out.println("Base fare updated successfully.");
         }
     }
@@ -86,8 +88,8 @@ public class AdminService { // Handles admin login and config changes
     }
 
     public void addPeakWindow(Config config, String peakWindow) {
-        if (peakWindow == null || peakWindow.trim().equals("")) {
-            System.out.println("Invalid peak window.");
+        if (config.getPeakWindows().contains(peakWindow)) {
+            System.out.println("Peak window already exists.");
         }
         else {
             config.getPeakWindows().add(peakWindow);
@@ -96,7 +98,8 @@ public class AdminService { // Handles admin login and config changes
     }
 
     public void deletePeakWindow(Config config, String peakWindow) {
-        if (config.getPeakWindows().remove(peakWindow)) {
+        if (config.getPeakWindows().contains(peakWindow)) {
+            config.getPeakWindows().remove(peakWindow);
             System.out.println("Peak window deleted successfully.");
         }
         else {

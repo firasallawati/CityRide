@@ -64,10 +64,26 @@ public class Config { // Stores system fare configuration
     }
 
     public void loadDefaultValues() {
-        baseFares.put("1-1-Peak", new BigDecimal("2.50"));
-        baseFares.put("1-1-Off-Peak", new BigDecimal("2.00"));
-        baseFares.put("1-2-Peak", new BigDecimal("3.20"));
-        baseFares.put("1-2-Off-Peak", new BigDecimal("2.70"));
+        baseFares.clear();
+        passengerDiscounts.clear();
+        dailyCaps.clear();
+        peakWindows.clear();
+
+        addFarePair(1, 1, "2.50", "2.00");
+        addFarePair(1, 2, "3.20", "2.70");
+        addFarePair(1, 3, "3.80", "3.20");
+        addFarePair(1, 4, "4.40", "3.70");
+        addFarePair(1, 5, "5.10", "4.30");
+        addFarePair(2, 2, "2.30", "1.90");
+        addFarePair(2, 3, "2.90", "2.40");
+        addFarePair(2, 4, "3.50", "2.90");
+        addFarePair(2, 5, "4.10", "3.40");
+        addFarePair(3, 3, "2.20", "1.80");
+        addFarePair(3, 4, "2.80", "2.30");
+        addFarePair(3, 5, "3.40", "2.80");
+        addFarePair(4, 4, "2.10", "1.70");
+        addFarePair(4, 5, "2.70", "2.20");
+        addFarePair(5, 5, "2.00", "1.60");
 
         passengerDiscounts.put("Adult", new BigDecimal("0.00"));
         passengerDiscounts.put("Student", new BigDecimal("0.25"));
@@ -81,5 +97,15 @@ public class Config { // Stores system fare configuration
 
         peakWindows.add("06:30-09:30");
         peakWindows.add("16:00-19:00");
+    }
+
+    public void addFarePair(int zoneA, int zoneB, String peakFare, String offPeakFare) {
+        baseFares.put(zoneA + "-" + zoneB + "-Peak", new BigDecimal(peakFare));
+        baseFares.put(zoneA + "-" + zoneB + "-Off-Peak", new BigDecimal(offPeakFare));
+
+        if (zoneA != zoneB) {
+            baseFares.put(zoneB + "-" + zoneA + "-Peak", new BigDecimal(peakFare));
+            baseFares.put(zoneB + "-" + zoneA + "-Off-Peak", new BigDecimal(offPeakFare));
+        }
     }
 }
