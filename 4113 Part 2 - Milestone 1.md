@@ -160,6 +160,12 @@ The purpose of the program is to extend the Part 1 **CityRide Lite** system in
 
 <img title="" src="Flow7%202.PNG" alt="" width="643">
 
+
+
+**Class Diagram:**
+
+![](JAVA%20CLASS%20DIAGRAM.png)
+
 ---
 
 ### Research

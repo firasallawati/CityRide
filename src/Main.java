@@ -319,14 +319,14 @@ public class Main {
                     else if (riderChoice == 8) {
                         String fileName;
 
-                        System.out.print("Enter CSV file name to import: ");
+                        System.out.print("Enter file name to import saved journeys as: ");
                         fileName = input.nextLine();
                         journeyCSVHandler.importJourneys(fileName, journeyManager);
                     }
                     else if (riderChoice == 9) {
                         String fileName;
 
-                        System.out.print("Enter CSV file name to export: ");
+                        System.out.print("Enter file name to export saved journeys as: ");
                         fileName = input.nextLine();
                         journeyCSVHandler.exportJourneys(fileName, journeyManager);
                     }
